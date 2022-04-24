@@ -11,23 +11,20 @@
 - Banco de Dados serverless FaunaDB não relacional e free schema para cadastro de usuário e subscrição em sites;
 
 ## 📝Feature:
-
-- Inserção de CMS Prismic;
-- Construção da pagina Posts;
-- Navegação no menu;
-- Componente ActiveLink;
-- Validanddo assinatura ativa;
+- Login/Logout com conta GitHub;
+- Criação de posts com CMS Prismic;
+- Pagina com Posts parcialmente visível, full acesso após ser assinante;
+- Pagamento via API Stripe com bandeiras Master Card e VISA(4242 4242 4242);
+- Navegação de menu com componente ActiveLink;
+- Salva dados sem duplicidade;
+- Validação de usuários e assinatura ativa;
+- React-Icons ⚛;
 
 ## Setup
 - yarn;
 - yarn dev;
 - other terminal: sudo ./stripe listen --forward-to localhost:3000/api/webhooks
 - .env.local: config variavel ambiente
+- APIs keys;
 
 #JavaScript #TypeScript #SASS
-
-## Setup
-after clone execute yarn,
-sudo ./stripe listen --forward-to localhost:3000/api/webhooks
-yarn dev
-API key ok
