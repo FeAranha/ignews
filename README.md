@@ -23,8 +23,8 @@
 ## Setup
 - yarn;
 - yarn dev;
-- other terminal: sudo ./stripe listen --forward-to localhost:3000/api/webhooks
-- .env.local: config variavel ambiente
+- other terminal: sudo ./stripe listen --forward-to localhost:3000/api/webhooks;
+- .env.local: config variavel ambiente;
 - APIs keys;
 
 #JavaScript #TypeScript #SASS
