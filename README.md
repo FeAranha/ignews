@@ -25,3 +25,9 @@
 - .env.local: config variavel ambiente
 
 #JavaScript #TypeScript #SASS
+
+## Setup
+after clone execute yarn,
+sudo ./stripe listen --forward-to localhost:3000/api/webhooks
+yarn dev
+API key ok
