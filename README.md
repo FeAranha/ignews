@@ -10,7 +10,7 @@
 - Autenticação de usuário com Next Auth, usando conta GitHub;
 - Banco de Dados serverless FaunaDB não relacional e free schema para cadastro de usuário e subscrição em sites;
 
-## 📝 Proximas feature:
+## 📝Feature:
 
 - Inserção de CMS Prismic;
 - Construção da pagina Posts;
@@ -18,5 +18,10 @@
 - Componente ActiveLink;
 - Validanddo assinatura ativa;
 
+## Setup
+- yarn;
+- yarn dev;
+- other terminal: sudo ./stripe listen --forward-to localhost:3000/api/webhooks
+- .env.local: config variavel ambiente
 
 #JavaScript #TypeScript #SASS
