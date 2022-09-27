@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from "next"
 import { useSession } from "next-auth/client"
 import Head from "next/head"
 import Link from "next/link"
-import router from "next/router"
+import { useRouter } from "next/router"
 import { RichText } from "prismic-dom"
 import { useEffect } from "react"
 
@@ -21,6 +21,7 @@ interface PostPreviewProps {
 
 export default function PostPreview({ post }: PostPreviewProps) {
     const [session] = useSession()
+    const router = useRouter()
 
     useEffect(() => {
         if (session?.activeSubscription) {
@@ -44,7 +45,7 @@ export default function PostPreview({ post }: PostPreviewProps) {
                     />
 
                     <div className={styles.continueReading}>
-                        Wanna continue reading?
+                        <span>Wanna continue reading?</span>
                         <Link href="/">
                             <a href="">Subscribe now 🤗</a>
                         </Link>
@@ -67,7 +68,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) =>{
 
     const prismic = getPrismicClient()
 
-    const response = await prismic.getByUID<any>('post', String(slug), {})
+    const response = await prismic.getByUID<any>('publication', String(slug), {})
 
     const post = {
         slug,
