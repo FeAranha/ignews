@@ -1,7 +1,8 @@
 import { GetServerSideProps } from "next"
-import { getSession } from "next-auth/client"
+import { getSession } from "next-auth/react"
 import Head from "next/head"
 import { RichText } from "prismic-dom"
+import { DataDocumentsPrismic } from "."
 
 import { getPrismicClient } from "../../services/prismic"
 
@@ -51,7 +52,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
 
     const prismic = getPrismicClient(req)
 
-    const response = await prismic.getByUID<any>('post', String(slug), {})
+    const response = await prismic.getByUID<DataDocumentsPrismic>('post', String(slug), {})
 
     const post = {
         slug,

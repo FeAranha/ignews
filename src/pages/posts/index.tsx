@@ -10,6 +10,13 @@ import { getPrismicClient } from '../../services/prismic'
 
 import styles from './styles.module.scss'
 
+export type DataDocumentsPrismic = {
+    title?: string,
+    content?: Array<{
+        type: string,
+        text: string
+    }>,
+}
 
 type Post = {
     slug: string
@@ -51,7 +58,7 @@ export default function Posts({ posts }: PostsProps) {
 export const getStaticProps: GetStaticProps = async () => {
     const prismic = getPrismicClient()
 
-    const response = await prismic.query<any>([
+    const response = await prismic.query<DataDocumentsPrismic>([
         Prismic.predicates.at('document.type', 'post')
     ], {
         fetch: ['post.title', 'post.content'],
