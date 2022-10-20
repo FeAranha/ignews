@@ -10,8 +10,6 @@ export default NextAuth({
             clientSecret: process.env.GITHUB_CLIENT_SECRET,
         }),
     ],
-    secret: process.env.SECRET,
-
     callbacks: {
         async session({session}) {
           try {
@@ -82,6 +80,7 @@ export default NextAuth({
                 return false
             }
         },
-    }
+    },
+    secret: process.env.SECRET,
     //A database is optional, but required to persist accounts in a database
 })
