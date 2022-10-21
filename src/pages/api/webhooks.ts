@@ -28,13 +28,12 @@ const relevantEvents = new Set([
     'customer.subscription.deleted',
 ])
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const webhooks = async function(req: NextApiRequest, res: NextApiResponse){
     if (req.method === 'POST') {
         const buf = await buffer(req)
         const secret = req.headers['stripe-signature']
 
         let event: Stripe.Event
-
         try {
             event = stripe.webhooks.constructEvent(buf, secret, process.env.STRIPE_WEBHOOK_SECRET)
         } catch (err) {
@@ -82,3 +81,4 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(405).end('Method not allowed')
 }
 }
+export default webhooks
