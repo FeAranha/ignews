@@ -10,7 +10,6 @@ import { DataDocumentsPrismic } from "../";
 
 import styles from '../post.module.scss'
 
-/* eslint-disable react-hooks/exhaustive-deps */
 interface PostPreviewProps {
     post: {
         slug: string
@@ -28,7 +27,7 @@ export default function PostPreview({ post }: PostPreviewProps) {
         if (session.data?.activeSubscription) {
             router.push(`/posts/${post.slug}`)
         }
-    }, [session])
+    }, [session, post.slug, router])
 
     return (
         <>
@@ -69,7 +68,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) =>{
 
     const prismic = getPrismicClient()
 
-    const response = await prismic.getByUID<DataDocumentsPrismic>('publication', String(slug), {})
+    const response = await prismic.getByUID<DataDocumentsPrismic>('post', String(slug), {})
 
     const post = {
         slug,
