@@ -24,7 +24,7 @@ export default function PostPreview({ post }: PostPreviewProps) {
     const router = useRouter()
 
     useEffect(() => {
-        if (session.data?.activeSubscription) {
+        if (session.data?.expires) {
             router.push(`/posts/${post.slug}`)
         }
     }, [session, post.slug, router])
@@ -46,8 +46,8 @@ export default function PostPreview({ post }: PostPreviewProps) {
 
                     <div className={styles.continueReading}>
                         <span>Wanna continue reading?</span>
-                        <Link href="/">
-                            <a href="">Subscribe now 🤗</a>
+                        <Link href="">
+                             Subscribe now 🤗
                         </Link>
                     </div>
             </article>

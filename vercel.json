@@ -1,7 +1,14 @@
 {
-  "build": {
-    "env": {
-      "NODE_VERSION": "16"
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node"
+    }
+  ],
+  "functions": {
+    "api/**/*.js": {
+      "runtime": "nodejs18.x"
     }
   }
 }

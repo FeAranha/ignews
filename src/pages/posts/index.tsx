@@ -42,11 +42,11 @@ export default function Posts({ posts }: PostsProps) {
              <Link 
              key={post.slug}
              href={`/posts/${post.slug}`}>
-             <a /*key={post.slug}*/>
+             <>
                  <time>{post.updatedAt}</time>
                  <strong>{post.title}</strong>
                  <p>{post.excerpt}</p>
-             </a>
+             </>
              </Link>
              )) }
          </div>
