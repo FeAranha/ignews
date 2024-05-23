@@ -81,6 +81,6 @@ export default NextAuth({
             }
         },
     },
-    //secret: process.env.SECRET,
+    secret: process.env.SECRET,
     //A database is optional, but required to persist accounts in a database
 })
