@@ -9,6 +9,7 @@ import { RichText } from 'prismic-dom'
 import { getPrismicClient } from '../../services/prismic'
 
 import styles from './styles.module.scss'
+import { ActiveLink } from '../../components/ActiveLink'
 
 export type DataDocumentsPrismic = {
     title?: string,
@@ -39,7 +40,8 @@ export default function Posts({ posts }: PostsProps) {
      <main className={styles.container}>
          <div className={styles.posts}>
              { posts.map(post => (
-             <Link 
+             <ActiveLink
+             activeClassName={styles.active} 
              key={post.slug}
              href={`/posts/${post.slug}`}>
              <>
@@ -47,7 +49,7 @@ export default function Posts({ posts }: PostsProps) {
                  <strong>{post.title}</strong>
                  <p>{post.excerpt}</p>
              </>
-             </Link>
+             </ActiveLink>
              )) }
          </div>
      </main>

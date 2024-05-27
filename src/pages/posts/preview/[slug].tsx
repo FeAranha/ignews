@@ -9,6 +9,7 @@ import { useEffect } from "react"
 import { DataDocumentsPrismic } from "../";
 
 import styles from '../post.module.scss'
+import { ActiveLink } from "../../../components/ActiveLink"
 
 interface PostPreviewProps {
     post: {
@@ -46,9 +47,9 @@ export default function PostPreview({ post }: PostPreviewProps) {
 
                     <div className={styles.continueReading}>
                         <span>Wanna continue reading?</span>
-                        <Link href="/">
-                             Subscribe now 🤗
-                        </Link>
+                        <ActiveLink activeClassName={styles.active} href="/">
+                             <p>Subscribe now 🤗</p>
+                        </ActiveLink>
                     </div>
             </article>
         </main>
