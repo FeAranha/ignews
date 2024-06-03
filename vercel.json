@@ -3,12 +3,5 @@
     "env": {
       "NODE_VERSION": "18"
     }
-  },
-  "redirects": [
-    { 
-      "source": "/(.*)", 
-      "destination": "https://ignews-dev-fullstack.vercel.app/", 
-      "permanent": true 
-    }
-  ]
+  }
 }
