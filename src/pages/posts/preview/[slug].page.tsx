@@ -6,7 +6,7 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import { useSession } from "next-auth/react"
 import { useEffect } from "react"
-import { DataDocumentsPrismic } from "../";
+import { DataDocumentsPrismic } from "../index.page";
 
 import styles from '../post.module.scss'
 import { ActiveLink } from "../../../components/ActiveLink"

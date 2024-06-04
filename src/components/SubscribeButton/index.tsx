@@ -12,6 +12,7 @@ export function SubscribeButton({priceId}: SubscribeButtonProps) {
   const {data: session} = useSession()
   const router = useRouter()
 console.log('session=>', session)
+console.log('sessionExpires=>', session.expires)
   async function handleSubscribe() {
     if (!session) {
       signIn('github')

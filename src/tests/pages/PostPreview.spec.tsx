@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { useSession } from 'next-auth/client'
 import { useRouter } from 'next/router'
-import PostPreview, { getStaticProps } from '../../pages/posts/preview/[slug]'
+import PostPreview, { getStaticProps } from '../../pages/posts/preview/[slug].page'
 import { getPrismicClient } from '../../services/prismic'
 
 const post = { 

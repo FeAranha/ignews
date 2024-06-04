@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import Posts, { getStaticProps } from '../../pages/posts';
+import Posts, { getStaticProps } from '../../pages/posts/index.page';
 import { getPrismicClient } from '../../services/prismic'
 
 const posts = [
