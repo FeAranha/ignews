@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { getSession } from 'next-auth/react';
-import Post, { getServerSideProps } from '../../pages/posts/[slug]';
+import Post, { getServerSideProps } from '../../pages/posts/[slug].page';
 import { getPrismicClient } from '../../services/prismic'
 
 const post = { 
