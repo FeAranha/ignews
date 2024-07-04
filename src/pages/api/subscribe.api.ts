@@ -17,6 +17,10 @@ const subscribe = async function(req: NextApiRequest, res: NextApiResponse){
     if (req.method === 'POST') {
         const session = await getSession({ req })
 
+        if (!session || !session.user) {
+            return res.status(401).json({ error: "Not authenticated" });
+          }
+      
         const user = await fauna.query<User>(
             q.Get(
                 q.Match(

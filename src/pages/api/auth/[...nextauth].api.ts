@@ -1,15 +1,10 @@
 import NextAuth from 'next-auth'
-import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from 'next-auth/providers/google'
 import { fauna } from '../../../services/fauna'
 import { query as q } from 'faunadb'
 
 export default NextAuth({
     providers: [
-        // GithubProvider({
-        //     clientId: process.env.GITHUB_CLIENT_ID,
-        //     clientSecret: process.env.GITHUB_CLIENT_SECRET,
-        // }),
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID ?? '',
             clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? '',
@@ -17,6 +12,10 @@ export default NextAuth({
     ],
     callbacks: {
         async session({session}) {
+          if (!session?.user?.email) {
+                return session
+          }    
+
           try {
             const userActiveSubscription = await fauna.query(
                 q.Get(
@@ -87,5 +86,4 @@ export default NextAuth({
         },
     },
     secret: process.env.NEXTAUTH_SECRET
-    //A database is optional, but required to persist accounts in a database
 })
